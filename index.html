@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Editor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">PHOTO EDITOR</div>
+    <div class="menu">
+      <button id="newBtn">New</button>
+      <button id="openBtn">Open</button>
+      <button id="exportBtn">Export PNG</button>
+      <button id="undoBtn">Undo</button>
+      <button id="redoBtn">Redo</button>
+    </div>
+    <div class="zoom-controls">
+      <button id="zoomOutBtn">−</button>
+      <span id="zoomLabel">100%</span>
+      <button id="zoomInBtn">+</button>
+      <button id="fitBtn">Fit</button>
+    </div>
+  </header>
+
+  <main class="app">
+    <aside class="toolbar">
+      <button class="tool active" data-tool="move" title="Move">↖</button>
+      <button class="tool" data-tool="brush" title="Brush">✎</button>
+      <button class="tool" data-tool="eraser" title="Eraser">⌫</button>
+      <button class="tool" data-tool="marquee" title="Marquee">▧</button>
+      <button class="tool" data-tool="eyedropper" title="Eyedropper">⌾</button>
+    </aside>
+
+    <section class="workspace" id="workspace">
+      <div class="viewport" id="viewport">
+        <canvas id="canvas"></canvas>
+        <canvas id="overlay"></canvas>
+      </div>
+      <div class="empty" id="emptyState">Open an image or create a new document</div>
+    </section>
+
+    <aside class="sidebar">
+      <section class="panel">
+        <div class="panel-title">Tool Options</div>
+        <div id="toolOptions"></div>
+      </section>
+
+      <section class="panel" id="layerPropertiesPanel">
+        <div class="panel-title">Layer Properties</div>
+        <div id="layerProperties"></div>
+      </section>
+
+      <section class="panel layers-panel">
+        <div class="panel-title">
+          <span>Layers</span>
+          <div class="layer-actions">
+            <button id="addLayerBtn">＋</button>
+            <button id="duplicateLayerBtn">⧉</button>
+            <button id="deleteLayerBtn">−</button>
+          </div>
+        </div>
+        <div id="layers"></div>
+      </section>
+    </aside>
+  </main>
+
+  <input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+  <script src="app.js"></script>
+</body>
+</html>
